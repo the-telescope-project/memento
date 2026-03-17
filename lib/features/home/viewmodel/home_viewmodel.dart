@@ -3,7 +3,6 @@ import 'package:memento/core/utils/error_result.dart';
 import 'package:memento/core/utils/result.dart';
 import 'package:memento/features/home/model/domain/group.dart';
 import 'package:memento/features/home/model/domain/revision.dart';
-import 'package:memento/features/home/model/isar/revision_model.dart';
 import 'package:memento/features/home/model/domain/revision_rating_type.dart';
 import 'package:memento/features/home/repositories/home_local_repository.dart';
 

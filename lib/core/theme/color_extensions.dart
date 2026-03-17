@@ -50,6 +50,7 @@ class ColorExtensions extends ThemeExtension<ColorExtensions> {
     Color? borderBlueStrong,
     Color? borderSelectedBlue,
     Color? textPrimary,
+    Color? textMedium,
     Color? textSecondary,
     Color? teal,
     Color? limeGreen,

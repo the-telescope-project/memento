@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:memento/core/theme/color_extensions.dart';
-import 'package:memento/core/utils/hex_to_rgb.dart';
 import 'package:memento/features/home/model/domain/group.dart';
 import 'package:memento/features/home/view/widgets/revision_card.dart';
 
