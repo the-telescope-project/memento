@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'color_extensions.dart';
 import 'base_colors.dart';
+import 'typography_extensions.dart';
 
 ThemeData defaultTheme = ThemeData(
   extensions: [
@@ -22,6 +24,34 @@ ThemeData defaultTheme = ThemeData(
       limeGreen: BaseColors.limeGreen,
       softOrange: BaseColors.softOrange,
       softRed: BaseColors.softRed,
+    ),
+
+    TypographyExtensions(
+      cardTitle: GoogleFonts.nunito(
+        color: BaseColors.neutral300,
+        fontSize: 24.0,
+        fontWeight: FontWeight.w700,
+      ),
+      cardMetadataPrimary: GoogleFonts.roboto(
+        color: BaseColors.neutral200, // Lighter color for GroupCard
+        fontWeight: FontWeight.bold,
+        fontSize: 15,
+      ),
+      cardMetadataSecondary: GoogleFonts.roboto(
+        color: BaseColors.neutral500, // Darker color for RevisionCard metadata
+        fontWeight: FontWeight.bold,
+        fontSize: 15,
+      ),
+      cardBody: GoogleFonts.roboto(
+        color: BaseColors.neutral500,
+        fontWeight: FontWeight.normal,
+        fontSize: 15,
+      ),
+      inputField: GoogleFonts.robotoSerif(
+        color: BaseColors.neutral300,
+        fontWeight: FontWeight.w500,
+        fontSize: 20,
+      ),
     ),
   ],
   primaryColor: BaseColors.brand900,

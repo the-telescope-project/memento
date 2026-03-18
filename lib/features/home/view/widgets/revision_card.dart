@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:memento/core/theme/color_extensions.dart';
+import 'package:memento/core/theme/typography_extensions.dart';
 import 'package:memento/features/home/model/domain/revision_rating_type.dart';
 import 'package:memento/features/home/viewmodel/home_viewmodel.dart';
 import 'package:provider/provider.dart';
@@ -62,6 +62,7 @@ class _RevisionCardState extends State<RevisionCard> {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<ColorExtensions>()!;
+    final typography = Theme.of(context).extension<TypographyExtensions>()!;
     return GestureDetector(
       onDoubleTap: _toggleExpand,
       child: Stack(
@@ -108,22 +109,11 @@ class _RevisionCardState extends State<RevisionCard> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Expanded(
-                        child: Text(
-                          widget.title,
-                          style: GoogleFonts.nunito(
-                            color: colors.textPrimary,
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
+                        child: Text(widget.title, style: typography.cardTitle),
                       ),
                       Text(
                         "${widget.group ?? ''} • rev: 4 days",
-                        style: GoogleFonts.roboto(
-                          color: colors.textSecondary,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
+                        style: typography.cardMetadataSecondary,
                       ),
                     ],
                   ),
@@ -141,7 +131,7 @@ class _RevisionCardState extends State<RevisionCard> {
                       children: [
                         Divider(color: colors.scaffoldBg, thickness: 4.0),
                         const SizedBox(height: 10.0),
-                        _buildDescriptionRow(context, colors),
+                        _buildDescriptionRow(context, colors, typography),
                         const SizedBox(height: 14.0),
                         _buildRatingRow(colors),
                       ],
@@ -159,7 +149,11 @@ class _RevisionCardState extends State<RevisionCard> {
     );
   }
 
-  Widget _buildDescriptionRow(BuildContext context, ColorExtensions colors) {
+  Widget _buildDescriptionRow(
+    BuildContext context,
+    ColorExtensions colors,
+    TypographyExtensions typography,
+  ) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -186,11 +180,7 @@ class _RevisionCardState extends State<RevisionCard> {
                 hintText: "Add a description...",
                 contentPadding: EdgeInsets.zero,
               ),
-              style: GoogleFonts.roboto(
-                color: colors.borderActive,
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
-              ),
+              style: typography.cardBody,
             ),
           ),
         ),

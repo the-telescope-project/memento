@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:memento/core/theme/color_extensions.dart';
+import 'package:memento/core/theme/typography_extensions.dart';
 import 'package:memento/features/home/model/ui/input_step.dart';
 import 'package:memento/features/home/model/ui/input_form.dart';
 
@@ -72,6 +72,8 @@ class _RevisionInputState extends State<RevisionInput> {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).extension<ColorExtensions>()!;
+    final typography = Theme.of(context).extension<TypographyExtensions>()!;
     return Padding(
       padding: EdgeInsets.only(
         bottom: MediaQuery.of(context).viewInsets.bottom,
@@ -88,38 +90,20 @@ class _RevisionInputState extends State<RevisionInput> {
               onSubmitted: (value) => addRevisionNote(),
               cursorRadius: const Radius.circular(5),
               textAlign: TextAlign.center,
-              style: GoogleFonts.robotoSerif(
-                color: Theme.of(
-                  context,
-                ).extension<ColorExtensions>()!.textPrimary,
-                fontWeight: FontWeight.w500,
-                fontSize: 20,
-              ),
+              style: typography.inputField,
               decoration: InputDecoration(
                 constraints: BoxConstraints(maxHeight: double.maxFinite),
                 contentPadding: const EdgeInsets.all(25),
                 hintText: stepIndex != null ? steps[stepIndex!].hint : "",
                 filled: true,
-                fillColor: Theme.of(
-                  context,
-                ).extension<ColorExtensions>()!.fillGreySurface,
+                fillColor: colors.fillGreySurface,
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(42),
-                  borderSide: BorderSide(
-                    color: Theme.of(
-                      context,
-                    ).extension<ColorExtensions>()!.borderDefault,
-                    width: 5,
-                  ),
+                  borderSide: BorderSide(color: colors.borderDefault, width: 5),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(42),
-                  borderSide: BorderSide(
-                    color: Theme.of(
-                      context,
-                    ).extension<ColorExtensions>()!.borderActive,
-                    width: 5,
-                  ),
+                  borderSide: BorderSide(color: colors.borderActive, width: 5),
                 ),
               ),
             ),
@@ -150,9 +134,7 @@ class _RevisionInputState extends State<RevisionInput> {
                             height: 16.0,
                             width: 16.0,
                             decoration: BoxDecoration(
-                              color: Theme.of(
-                                context,
-                              ).extension<ColorExtensions>()!.borderActive,
+                              color: colors.borderActive,
                               borderRadius: BorderRadiusGeometry.circular(50.0),
                             ),
                           ),
@@ -160,9 +142,7 @@ class _RevisionInputState extends State<RevisionInput> {
                             height: 16.0,
                             width: 16.0,
                             decoration: BoxDecoration(
-                              color: Theme.of(
-                                context,
-                              ).extension<ColorExtensions>()!.borderActive,
+                              color: colors.borderActive,
                               borderRadius: BorderRadiusGeometry.circular(50.0),
                             ),
                           ),
@@ -170,9 +150,7 @@ class _RevisionInputState extends State<RevisionInput> {
                             height: 16.0,
                             width: 16.0,
                             decoration: BoxDecoration(
-                              color: Theme.of(
-                                context,
-                              ).extension<ColorExtensions>()!.borderActive,
+                              color: colors.borderActive,
                               borderRadius: BorderRadiusGeometry.circular(50.0),
                             ),
                           ),

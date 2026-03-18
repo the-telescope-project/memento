@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:memento/core/theme/color_extensions.dart';
+import 'package:memento/core/theme/typography_extensions.dart';
 import 'package:memento/features/home/model/domain/group.dart';
 import 'package:memento/features/home/view/widgets/revision_card.dart';
 
@@ -23,6 +23,7 @@ class _GroupCardState extends State<GroupCard> {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<ColorExtensions>()!;
+    final typography = Theme.of(context).extension<TypographyExtensions>()!;
     return GestureDetector(
       onTap: _toggleExpand,
       child: AnimatedContainer(
@@ -72,20 +73,11 @@ class _GroupCardState extends State<GroupCard> {
                   children: [
                     Text(
                       widget.groupModel.groupName,
-                      style: GoogleFonts.nunito(
-                        color: colors.textPrimary,
-                        fontSize: 24.0,
-                        fontWeight: FontWeight.w700,
-                      ),
+                      style: typography.cardTitle,
                     ),
                     Text(
-                      "  •  ${widget.groupModel.revisions.length} Elements",
-                      style: GoogleFonts.roboto(
-                        color: colors.textMedium,
-                        fontWeight: FontWeight.bold,
-
-                        fontSize: 15,
-                      ),
+                      "  •  ${widget.groupModel.revisions.length} elements",
+                      style: typography.cardMetadataPrimary,
                     ),
                   ],
                 ),
